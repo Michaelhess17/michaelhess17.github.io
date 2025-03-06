@@ -1,7 +1,7 @@
 +++
 date = '2025-03-06T02:02:26-05:00'
 draft = false
-title = 'College_Research'
+title = 'College Research'
 +++
 
 # Research/Work Experiences Before Graduate School
