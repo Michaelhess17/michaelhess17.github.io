@@ -10,7 +10,7 @@ weight = 2
 
 [[main]]
 name = "CV"
-pageRef = "cv"
+pageRef = "cv/index.html"
 weight = 3
 
 [[footer]]
