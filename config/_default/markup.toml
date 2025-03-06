@@ -6,7 +6,8 @@
   unsafe = true
 
 [highlight]
-  noClasses = false
+  noClasses = true
+  style = "catppuccin-mocha"
 
 [tableOfContents]
   startLevel = 2

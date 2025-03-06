@@ -7,10 +7,11 @@ replyByEmail = false
 disableImageOptimization = false
 disableTextInHeader = false
 highlightCurrentMenuArea = true
-# smartTOC = true
+smartTOC = true
 # smartTOCHideUnfocusedChildren = true
 giteaDefaultServer = "https://git.fsfe.org"
 forgejoDefaultServer = "https://v8.next.forgejo.org"
+defaultBackgroundImage = "abstract-swirls.jpg"
 
 [header]
 layout = "fixed-gradient"
@@ -32,6 +33,7 @@ cardView = true
 cardViewScreenWidth = false
 layoutBackgroundBlur = false
 
+
 [article]
 showDate = true
 showViews = false
@@ -39,7 +41,8 @@ showLikes = false
 showDateOnlyInArticle = false
 showDateUpdated = false
 showAuthor = true
-showHero = false
+showHero = true
+heroStyle = "background"
 layoutBackgroundBlur = true
 layoutBackgroundHeaderSpace = true
 showBreadcrumbs = false
@@ -58,7 +61,7 @@ showWordCount = true
 showZenMode = true
 
 [list]
-showHero = false
+showHero = true
 layoutBackgroundBlur = true
 layoutBackgroundHeaderSpace = true
 showBreadcrumbs = false
