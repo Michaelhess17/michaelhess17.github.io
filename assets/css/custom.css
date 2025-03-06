@@ -57,7 +57,7 @@ section.flex.flex-col.max-w-full.mt-0.prose.dark\:prose-invert.lg\:flex-row {
   margin-left: auto !important;
   display: flex !important;
   flex-direction: column !important;
-  align-items: center !important;
+  align-items: left !important;
   text-align: left !important;
 }
 

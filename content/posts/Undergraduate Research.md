@@ -1,7 +1,7 @@
 +++
 date = '2025-03-06T02:02:26-05:00'
 draft = false
-title = 'College Research'
+title = 'Undergraduate Research'
 tags = ["about me", "research"]
 categories = ["About me"]
 +++

@@ -19,6 +19,18 @@ enableEmoji = true
 
 # googleAnalytics = "G-XXXXXXXXX"
 
+[params.author]
+  name = "Michael Hess"
+  headline = "Neuroscience Ph.D. Candidate at Emory"
+  image = "bear_shark.jpg"
+  links = [
+    { github = "https://github.com/michaelhess17" },
+    { linkedin = "https://www.linkedin.com/in/michael-hess-654245155/" },
+    { email = "mailto:michael.hess@emory.edu" },
+    { twitter = "https://twitter.com/michaeldhess17" },
+    { instagram = "https://instagram.com/sharkganism" },
+  ]
+
 [pagination]
   pagerSize = 100
 
