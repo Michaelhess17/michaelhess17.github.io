@@ -1,0 +1,15 @@
+disabled = false
+languageCode = "en"
+languageName = "English"
+weight = 1
+title = "Michaelhess17.github.io"
+
+[params]
+displayName = "EN"
+isoCode = "en"
+rtl = false
+dateFormat = "2 January 2006"
+author = { name = "Michael Hess", email = "michael [dot] hess [at] emory [dot] edu", bio = "Ph.D. Candidate in Neursocience at Emory University" }
+
+[author]
+links = [ { github = "https://github.com/michaelhess17" }, { linkedin = "https://www.linkedin.com/in/michael-hess-654245155" } ]
