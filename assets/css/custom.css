@@ -1,0 +1,67 @@
+/* Override prose and article width constraints */
+
+/* Remove max-width constraints from flex containers */
+.flex {
+  max-width: none !important;
+}
+
+/* Target specific article containers */
+.max-w-full {
+  max-width: none !important;
+}
+
+.prose {
+  max-width: none !important;
+  text-align: justify;
+}
+
+/* Target flex grow containers */
+.flex-grow, 
+.grow {
+  max-width: none !important;
+  width: 100% !important;
+}
+
+
+/* Target the main section container */
+section.flex.flex-col.max-w-full.mt-0.prose.dark\:prose-invert.lg\:flex-row {
+  width: 100% !important;
+  max-width: none !important;
+  display: flex;
+  /* gap: 2rem; */
+  justify-content: space-between !important;
+}
+
+/* Target the main content container specifically */
+.min-w-0.min-h-0.max-w-fit {
+  max-width: none !important;
+  width: 100% !important;
+  flex: 1 1 auto !important;
+}
+
+/* Ensure text content uses full width */
+.prose :where(p):not(:where([class~="not-prose"],[class~="not-prose"] *)) {
+  width: 100% !important;
+  max-width: none !important;
+}
+
+/* Target all direct children of the content area */
+.min-w-0.min-h-0.max-w-fit > * {
+  width: 100% !important;
+  max-width: none !important;
+}
+
+/* Keep TOC width constrained and align right */
+.toc {
+  flex: 0 0 auto !important;
+  margin-left: auto !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  text-align: left !important;
+}
+
+/* Add some padding for readability */
+article {
+  padding: 0 clamp(1rem, 5%, 4rem);
+}
