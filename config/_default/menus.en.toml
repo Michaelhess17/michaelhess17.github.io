@@ -9,7 +9,7 @@ pageRef = "categories"
 weight = 2
 
 [[main]]
-name = "CV (.pdf)"
+name = "CV"
 url = "cv/Michael_Hess_CV.pdf"
 weight = 3
 
