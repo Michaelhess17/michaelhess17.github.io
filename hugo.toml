@@ -24,9 +24,11 @@ enableEmoji = true
   headline = "Neuroscience Ph.D. Candidate at Emory"
   image = "bear_shark.jpg"
   links = [
-    { github = "https://github.com/michaelhess17" },
+    { github = "https://gith:weightub.com/michaelhess17" },
+    { code = "https://leetcode.com/u/oRokm1tH62/" },
+    { kickstarter = "https://kaggle.com/michaelhess17" },
     { linkedin = "https://www.linkedin.com/in/michael-hess-654245155/" },
-    { email = "mailto:michael.hess@emory.edu" },
+    { envelope = "mailto:michael.hess@emory.edu" },
     { twitter = "https://twitter.com/michaeldhess17" },
     { instagram = "https://instagram.com/sharkganism" },
   ]
