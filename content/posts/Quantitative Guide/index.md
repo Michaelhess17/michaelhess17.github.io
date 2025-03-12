@@ -2,8 +2,8 @@
 date = '2025-03-11T03:39:21-05:00'
 draft = false
 title = 'A Guide to Learning Quantitative Analysis and Modeling'
-tags = ["research", "math"]
-categories = ["testing"]
+tags = ["math", "computer science"]
+categories = ["math", "computer science", "about me", "tutorials"]
 +++
 
 ## A Curated Guide to Learning Math, Coding, and Machine Learning
