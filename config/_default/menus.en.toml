@@ -10,7 +10,7 @@ weight = 2
 
 [[main]]
 name = "CV"
-url = "cv/Michael_Hess_CV.pdf"
+url = "https://michaelhess17.github.io/cv/Michael_Hess_CV.pdf"
 weight = 3
 
 [[footer]]
