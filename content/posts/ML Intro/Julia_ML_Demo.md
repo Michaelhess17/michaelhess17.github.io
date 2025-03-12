@@ -1165,7 +1165,7 @@ println("On average, it takes $avg_steps steps to identify each character.")
 
 There are 24 individuals in the Guess Who deck, so we are essentially optimally encoding each individual with our decision tree.
 
-This is a fun example, but it is *just one* in-depth example of *one type* of machine learning model. There are many other models, loss functions,optimization algorithms, and even whole frameworks of machine learning we couldn't possibly cover in a short introducction like this. \
+This is a fun example, but it is *just one* in-depth example of *one type* of machine learning model. There are many other models, loss functions, optimization algorithms, and even whole frameworks of machine learning we couldn't possibly cover in a short introduction like this. \
 In general, for a scientific project, you would be fitting models to discover complex relationships between variables, not trying to beat a Guess Who game. Depending on the model, though, discovering the exact relationship between your variables may be tricky, so two good rules of thumb are to stick to the simplest model you need and to err on the side of model explainability over model performance.
 
 ## Next steps
