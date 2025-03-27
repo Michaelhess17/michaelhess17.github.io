@@ -2,6 +2,8 @@
 date = '2025-03-27T11:42:17-04:00'
 draft = false
 title = 'Research Tools You Need to be Using'
+tags = ["tools", "research", "computer science", "tutorials"]
+categories = ["tools", "research", "computer science", "tutorials"]
 +++
 ## What's missing from most research development pipelines?
 
