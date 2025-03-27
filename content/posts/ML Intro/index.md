@@ -1,7 +1,7 @@
 +++
 date = '2025-03-11T08:39:21-05:00'
 draft = false
-title = 'An introduction to machine learning with Julia for scientists'
+title = 'An Introduction to Machine Learning with Julia for Scientists'
 tags = ["math", "computer science", "machine learning", "julia"]
 categories = ["math", "computer science", "tutorials", "machine learning", "julia"]
 +++
