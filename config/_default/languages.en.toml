@@ -1,15 +1,47 @@
+# ==============================================================================
+# English Language Configuration
+# ==============================================================================
+# Language-specific settings for the English version of the site.
+# For multilingual sites, create additional files like languages.es.toml, etc.
+# ==============================================================================
+
+# Language is enabled (set to true to disable)
 disabled = false
+
+# ISO 639-1 language code
 languageCode = "en"
+
+# Display name of the language
 languageName = "English"
+
+# Weight determines the order in language switcher (lower = first)
 weight = 1
+
+# Site title for this language
 title = "Michaelhess17.github.io"
 
+# ==============================================================================
+# Language-Specific Parameters
+# ==============================================================================
 [params]
-displayName = "EN"
-isoCode = "en"
-rtl = false
-dateFormat = "2 January 2006"
-author = { name = "Michael Hess", email = "michael [dot] hess [at] emory [dot] edu", bio = "Ph.D. Candidate in Neursocience at Emory University" }
+  displayName = "EN"          # Short name shown in language switcher
+  isoCode = "en"              # ISO code for HTML lang attribute
+  rtl = false                 # Text direction (false = left-to-right, true = right-to-left)
+  dateFormat = "2 January 2006"  # Date format using Go's reference time
 
+  # Author information for this language
+  [params.author]
+    name = "Michael Hess"
+    email = "michael [dot] hess [at] emory [dot] edu"
+    bio = "Ph.D. Candidate in Neursocience at Emory University"
+
+# ==============================================================================
+# Author Social Links
+# ==============================================================================
+# Social media and professional profile links
+# These appear in the author profile and footer
 [author]
-links = [ { github = "https://github.com/michaelhess17" }, { linkedin = "https://www.linkedin.com/in/michael-hess-654245155" } ]
+  links = [
+    { github = "https://github.com/michaelhess17" },
+    { linkedin = "https://www.linkedin.com/in/michael-hess-654245155" }
+  ]

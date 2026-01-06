@@ -1,53 +1,118 @@
-# Sample workflow for building and deploying a Hugo site to GitHub Pages
+# ==============================================================================
+# GitHub Actions Workflow: Hugo Site Deployment
+# ==============================================================================
+# Automatically builds and deploys the Hugo static site to GitHub Pages
+# whenever changes are pushed to the main branch.
+#
+# Workflow steps:
+# 1. Install Hugo Extended and Dart Sass
+# 2. Checkout repository (including theme submodule)
+# 3. Build the site with Hugo
+# 4. Deploy to GitHub Pages
+#
+# GitHub Pages documentation: https://docs.github.com/en/pages
+# ==============================================================================
+
 name: Deploy Hugo site to Pages
 
 on:
-  # Runs on pushes targeting the default branch
+  # Trigger on pushes to the default branch
+  # This ensures any merged PRs or direct commits to main trigger deployment
   push:
     branches: ["main"]
 
-  # Allows you to run this workflow manually from the Actions tab
+  # Allow manual workflow execution from the Actions tab
+  # Useful for re-deploying without making code changes
   workflow_dispatch:
 
-# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+# ==============================================================================
+# GitHub Token Permissions
+# ==============================================================================
+# Configure the GITHUB_TOKEN with minimal required permissions
+# Following the principle of least privilege for security
 permissions:
-  contents: read
-  pages: write
-  id-token: write
+  contents: read      # Read repository contents
+  pages: write        # Write to GitHub Pages
+  id-token: write     # Write ID tokens for deployment authentication
 
-# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
-# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
+# ==============================================================================
+# Concurrency Control
+# ==============================================================================
+# Prevent multiple deployments from running simultaneously
+# This ensures only one deployment runs at a time for the Pages environment
 concurrency:
-  group: "pages"
-  cancel-in-progress: false
+  group: "pages"              # Concurrency group name
+  cancel-in-progress: false   # Don't cancel running deployments
+                             # Allows production deployments to complete
 
-# Default to bash
+# Default shell for all run commands in this workflow
 defaults:
   run:
     shell: bash
 
 jobs:
-  # Build job
+  # ==========================================================================
+  # Build Job
+  # ==========================================================================
+  # Installs dependencies, builds the Hugo site, and prepares it for deployment
   build:
     runs-on: ubuntu-latest
     env:
+      # Hugo version to install
+      # Using 0.128.0 for consistency and reliability
       HUGO_VERSION: 0.128.0
     steps:
+      # ------------------------------------------------------------------------
+      # Step 1: Install Hugo CLI (Extended version)
+      # ------------------------------------------------------------------------
+      # Downloads and installs the specified version of Hugo Extended
+      # Extended version is required for SCSS/SASS processing
       - name: Install Hugo CLI
         run: |
           wget -O ${{ runner.temp }}/hugo.deb https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.deb \
           && sudo dpkg -i ${{ runner.temp }}/hugo.deb
+      
+      # ------------------------------------------------------------------------
+      # Step 2: Install Dart Sass
+      # ------------------------------------------------------------------------
+      # Installs Dart Sass for stylesheet compilation
+      # Required by the Blowfish theme for processing SCSS files
       - name: Install Dart Sass
         run: sudo snap install dart-sass
+      
+      # ------------------------------------------------------------------------
+      # Step 3: Checkout Repository
+      # ------------------------------------------------------------------------
+      # Clones the repository including all submodules (theme)
+      # The recursive flag ensures the Blowfish theme is also cloned
       - name: Checkout
         uses: actions/checkout@v4
         with:
           submodules: recursive
+      
+      # ------------------------------------------------------------------------
+      # Step 4: Configure GitHub Pages
+      # ------------------------------------------------------------------------
+      # Sets up Pages configuration and provides base URL for the build
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v5
+      
+      # ------------------------------------------------------------------------
+      # Step 5: Install Node.js Dependencies (if any)
+      # ------------------------------------------------------------------------
+      # Runs npm ci if package-lock.json exists
+      # Currently optional as this site doesn't use npm packages
       - name: Install Node.js dependencies
         run: "[[ -f package-lock.json || -f npm-shrinkwrap.json ]] && npm ci || true"
+      
+      # ------------------------------------------------------------------------
+      # Step 6: Build the Site with Hugo
+      # ------------------------------------------------------------------------
+      # Builds the static site with production settings
+      # - Uses Hugo cache for faster builds
+      # - Minifies output (HTML, CSS, JS) for better performance
+      # - Uses the base URL from Pages configuration
       - name: Build with Hugo
         env:
           HUGO_CACHEDIR: ${{ runner.temp }}/hugo_cache
@@ -56,19 +121,33 @@ jobs:
           hugo \
             --minify \
             --baseURL "${{ steps.pages.outputs.base_url }}/"
+      
+      # ------------------------------------------------------------------------
+      # Step 7: Upload Build Artifact
+      # ------------------------------------------------------------------------
+      # Packages the built site (public/ directory) for deployment
+      # The artifact is used by the deploy job
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./public
 
-  # Deployment job
+  # ==========================================================================
+  # Deployment Job
+  # ==========================================================================
+  # Deploys the built site artifact to GitHub Pages
+  # Depends on successful completion of the build job
   deploy:
     environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+      name: github-pages                          # GitHub Pages environment
+      url: ${{ steps.deployment.outputs.page_url }}  # Deployed site URL
     runs-on: ubuntu-latest
-    needs: build
+    needs: build  # Wait for build job to complete successfully
     steps:
+      # ------------------------------------------------------------------------
+      # Deploy to GitHub Pages
+      # ------------------------------------------------------------------------
+      # Takes the artifact from the build job and publishes to GitHub Pages
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
