@@ -1,28 +1,58 @@
+# ==============================================================================
+# Hugo Site Configuration
+# ==============================================================================
+# Main configuration file for the michaelhess17.github.io Hugo site.
+# This file contains global settings, author information, and content organization.
+#
+# For theme-specific configuration, see config/_default/ directory
+# Theme documentation: https://blowfish.page/docs/
+# Hugo documentation: https://gohugo.io/getting-started/configuration/
+# ==============================================================================
+
 # -- Site Configuration --
 # Refer to the theme docs for more details about each of these parameters.
 # https://blowfish.page/docs/getting-started/
 
-theme = "blowfish" # UNCOMMENT THIS LINE
+# Theme: Using Blowfish theme for Hugo
+# Repository: https://github.com/nunocoracao/blowfish
+theme = "blowfish"
+
+# Base URL: The root URL where the site will be published
 baseURL = "https://michaelhess17.github.io/"
-languageCode = "en"
-defaultContentLanguage = "en"
+
+# Language settings
+languageCode = "en"              # Primary language code (ISO 639-1)
+defaultContentLanguage = "en"    # Default language for content
 
 # pluralizeListTitles = "true" # hugo function useful for non-english languages, find out more in  https://gohugo.io/getting-started/configuration/#pluralizelisttitles
 
-enableRobotsTXT = true
-summaryLength = 0
+# SEO and crawling
+enableRobotsTXT = true    # Generate robots.txt for search engine crawlers
 
-buildDrafts = false
-buildFuture = false
+# Content summary settings
+summaryLength = 0         # 0 = use manual summary split (<!--more-->) or default
 
-enableEmoji = true
+# Build settings
+buildDrafts = false       # Exclude draft content from builds
+buildFuture = false       # Exclude content with future publish dates
 
-# googleAnalytics = "G-XXXXXXXXX"
+# Feature flags
+enableEmoji = true        # Enable emoji rendering in content
 
+# Analytics (currently disabled)
+# googleAnalytics = "G-XXXXXXXXX"
+
+# ==============================================================================
+# Author Information
+# ==============================================================================
+# Displayed on the homepage and in article metadata
 [params.author]
   name = "Michael Hess"
   headline = "Neuroscience Ph.D. Candidate at Emory"
   image = "bear_shark.jpg"
+  
+  # Social media and contact links
+  # These appear in the author profile card and footer
   links = [
     { github = "https://github.com/michaelhess17" },
     { code = "https://leetcode.com/u/oRokm1tH62/" },
@@ -33,52 +63,84 @@ enableEmoji = true
     { instagram = "https://instagram.com/sharkganism" },
   ]
 
+# ==============================================================================
+# Pagination Settings
+# ==============================================================================
+# Controls how many items appear per page in list views
 [pagination]
-  pagerSize = 100
+  pagerSize = 100         # Maximum items per page
 
+# ==============================================================================
+# Image Processing
+# ==============================================================================
+# Settings for Hugo's image processing and resizing
 [imaging]
-  anchor = 'Center'
+  anchor = 'Center'       # Default anchor point for image cropping
 
+# ==============================================================================
+# Content Organization (Taxonomies)
+# ==============================================================================
+# Define how content can be categorized and organized
+# These create archive pages automatically
 [taxonomies]
-  tag = "tags"
-  category = "categories"
-  author = "authors"
-  series = "series"
+  tag = "tags"            # Tag-based content organization
+  category = "categories" # Category-based content organization
+  author = "authors"      # Author-based content organization
+  series = "series"       # Series-based content organization (multi-part posts)
 
+# ==============================================================================
+# Sitemap Configuration
+# ==============================================================================
+# Settings for the automatically generated sitemap.xml
 [sitemap]
-  changefreq = 'daily'
-  filename = 'sitemap.xml'
-  priority = 0.5
+  changefreq = 'daily'    # How often pages typically change
+  filename = 'sitemap.xml' # Output filename
+  priority = 0.5          # Default priority for pages (0.0 to 1.0)
 
+# ==============================================================================
+# Output Formats
+# ==============================================================================
+# Define which output formats Hugo should generate
 [outputs]
-  home = ["HTML", "RSS", "JSON"]
+  home = ["HTML", "RSS", "JSON"]  # Homepage formats: HTML page, RSS feed, JSON feed
 
+# ==============================================================================
+# Related Content
+# ==============================================================================
+# Configure Hugo's related content feature for "you might also like" sections
+# Uses multiple indices with different weights to find related articles
 [related]
-  threshold = 0
-  toLower = false
+  threshold = 0           # Minimum score for content to be considered related
+  toLower = false         # Whether to lowercase values when comparing
 
-    [[related.indices]]
-        name = "tags"
-        weight = 100
+  # Content matching by tags (highest weight)
+  [[related.indices]]
+    name = "tags"
+    weight = 100
 
-    [[related.indices]]
-        name = "categories"
-        weight = 100
+  # Content matching by categories (high weight)
+  [[related.indices]]
+    name = "categories"
+    weight = 100
 
-    [[related.indices]]
-        name = "series"
-        weight = 50
+  # Content matching by series (medium weight)
+  [[related.indices]]
+    name = "series"
+    weight = 50
 
-    [[related.indices]]
-        name = "authors"
-        weight = 20
+  # Content matching by authors (low weight)
+  [[related.indices]]
+    name = "authors"
+    weight = 20
 
-    [[related.indices]]
-        name = "date"
-        weight = 10
+  # Content matching by publish date (lowest weight)
+  [[related.indices]]
+    name = "date"
+    weight = 10
 
-    [[related.indices]]
-      applyFilter = false
-      name = 'fragmentrefs'
-      type = 'fragments'
-      weight = 10
+  # Content matching by fragment references (lowest weight)
+  [[related.indices]]
+    applyFilter = false
+    name = 'fragmentrefs'
+    type = 'fragments'
+    weight = 10

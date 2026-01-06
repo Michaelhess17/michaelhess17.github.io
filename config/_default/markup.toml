@@ -1,14 +1,65 @@
-# -- Markup --
-# These settings are required for the theme to function.
+# ==============================================================================
+# Markup and Content Rendering Configuration
+# ==============================================================================
+# These settings control how Hugo processes and renders markdown content.
+# Required for the Blowfish theme to function properly.
+#
+# Hugo documentation: https://gohugo.io/getting-started/configuration-markup/
+# ==============================================================================
 
+# ==============================================================================
+# Goldmark (Markdown Renderer)
+# ==============================================================================
+# Goldmark is Hugo's default markdown processor (since v0.60)
 [goldmark]
-[goldmark.renderer]
-  unsafe = true
+  [goldmark.renderer]
+    # Allow raw HTML in markdown files
+    # Required for custom HTML elements, shortcodes, and advanced formatting
+    # Security note: Only enable if you trust your content sources
+    unsafe = true
 
+# ==============================================================================
+# Syntax Highlighting
+# ==============================================================================
+# Configuration for code block syntax highlighting
 [highlight]
+  # Generate inline styles instead of CSS classes
+  # When true, syntax highlighting works without external stylesheets
   noClasses = true
+  
+  # Color scheme for syntax highlighting
+  # Using Catppuccin Mocha theme (dark, modern color palette)
+  # Other options: monokai, dracula, github, nord, solarized-dark, etc.
+  # See: https://xyproto.github.io/splash/docs/all.html
   style = "catppuccin-mocha"
 
+# ==============================================================================
+# Table of Contents (TOC)
+# ==============================================================================
+# Controls the automatic generation of table of contents
 [tableOfContents]
+  # Heading level to start TOC (2 = start with ## headings)
+  # Level 1 (#) is typically the page title and excluded
   startLevel = 2
+  
+  # Heading level to end TOC (3 = include up to ### headings)
+  # Deeper headings (####, etc.) won't appear in TOC
   endLevel = 3
+
+# ==============================================================================
+# Additional Markup Options (commented out examples)
+# ==============================================================================
+# Uncomment and configure as needed:
+#
+# [goldmark.extensions]
+#   definitionList = true     # Enable definition lists
+#   footnote = true           # Enable footnotes
+#   linkify = true            # Auto-convert URLs to links
+#   strikethrough = true      # Enable ~~strikethrough~~
+#   table = true              # Enable tables
+#   taskList = true           # Enable - [ ] task lists
+#   typographer = true        # Smart quotes and dashes
+#
+# [goldmark.parser]
+#   autoHeadingID = true      # Auto-generate heading IDs
+#   autoHeadingIDType = "github"  # ID style: github or blackfriday

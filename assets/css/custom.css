@@ -1,57 +1,113 @@
-/* Override prose and article width constraints */
+/**
+ * Custom CSS Overrides for Blowfish Theme
+ * 
+ * This file contains custom styling to modify the default Blowfish theme behavior.
+ * Primary purpose: Create a full-width content layout while maintaining readable text
+ * and proper table of contents positioning.
+ * 
+ * @author Michael Hess
+ * @see https://blowfish.page/docs/ for theme documentation
+ */
+
+/* ============================================================================
+   LAYOUT OVERRIDES - Full Width Content
+   ============================================================================
+   These styles remove the default max-width constraints imposed by the theme
+   to allow content to span the full available width.
+*/
 
 /* Remove max-width constraints from flex containers */
 .flex {
   max-width: none !important;
 }
 
-/* Target specific article containers */
+/* Target specific article containers to allow full width */
 .max-w-full {
   max-width: none !important;
 }
 
+/* 
+ * Prose container: Contains the main article text
+ * - Remove max-width to allow full-width content
+ * - Apply justified text alignment for better readability in wide layouts
+ */
 .prose {
   max-width: none !important;
   text-align: justify;
 }
 
-/* Target flex grow containers */
+/* 
+ * Flex grow containers: Expand to fill available space
+ * Used for responsive layouts that should fill their parent container
+ */
 .flex-grow, 
 .grow {
   max-width: none !important;
   width: 100% !important;
 }
 
+/* ============================================================================
+   MAIN CONTENT SECTION
+   ============================================================================
+   Styles for the primary content area that contains both article text and TOC
+*/
 
-/* Target the main section container */
+/* 
+ * Main section container: Houses the article and sidebar
+ * - Full width layout
+ * - Flexbox for side-by-side content and TOC on larger screens
+ * - Space-between for optimal content distribution
+ */
 section.flex.flex-col.max-w-full.mt-0.prose.dark\:prose-invert.lg\:flex-row {
   width: 100% !important;
   max-width: none !important;
   display: flex;
-  /* gap: 2rem; */
+  /* gap: 2rem; /* Optional: Uncomment to add spacing between content and TOC */
   justify-content: space-between !important;
 }
 
-/* Target the main content container specifically */
+/* 
+ * Main content container: The primary article content area
+ * - Remove max-width constraints
+ * - Full width within flex container
+ * - Flexible sizing to accommodate content of varying lengths
+ */
 .min-w-0.min-h-0.max-w-fit {
   max-width: none !important;
   width: 100% !important;
   flex: 1 1 auto !important;
 }
 
-/* Ensure text content uses full width */
+/* 
+ * Text content paragraphs: Individual text blocks within articles
+ * Ensures paragraph elements don't inherit restrictive widths
+ */
 .prose :where(p):not(:where([class~="not-prose"],[class~="not-prose"] *)) {
   width: 100% !important;
   max-width: none !important;
 }
 
-/* Target all direct children of the content area */
+/* 
+ * Direct children of content area: All immediate child elements
+ * Ensures consistent full-width behavior for all content types
+ */
 .min-w-0.min-h-0.max-w-fit > * {
   width: 100% !important;
   max-width: none !important;
 }
 
-/* Keep TOC width constrained and align right */
+/* ============================================================================
+   TABLE OF CONTENTS (TOC)
+   ============================================================================
+   Positioning and layout for the table of contents sidebar
+*/
+
+/* 
+ * TOC container: Navigation sidebar for article sections
+ * - Fixed width (doesn't grow with flex)
+ * - Aligned to the right side of the content
+ * - Maintains left text alignment within the TOC
+ */
 .toc {
   flex: 0 0 auto !important;
   margin-left: auto !important;
@@ -61,7 +117,18 @@ section.flex.flex-col.max-w-full.mt-0.prose.dark\:prose-invert.lg\:flex-row {
   text-align: left !important;
 }
 
-/* Add some padding for readability */
+/* ============================================================================
+   READABILITY ENHANCEMENTS
+   ============================================================================
+   Spacing and padding adjustments for improved reading experience
+*/
+
+/* 
+ * Article padding: Responsive horizontal spacing
+ * - Minimum 1rem padding on small screens
+ * - Scales up to 4rem on larger screens (5% of viewport width)
+ * - Uses clamp() for smooth responsive behavior
+ */
 article {
   padding: 0 clamp(1rem, 5%, 4rem);
 }

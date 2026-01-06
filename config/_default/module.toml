@@ -1,3 +1,35 @@
+# ==============================================================================
+# Hugo Module Configuration
+# ==============================================================================
+# Defines Hugo module settings and version requirements.
+# Modules are Hugo's way of managing themes and components.
+#
+# Hugo Modules documentation: https://gohugo.io/hugo-modules/
+# ==============================================================================
+
+# ==============================================================================
+# Hugo Version Requirements
+# ==============================================================================
 [hugoVersion]
-  extended = false
+  # Minimum Hugo version required to build this site
+  # The site uses features available in Hugo 0.87.0+
   min = "0.87.0"
+  
+  # Whether Hugo Extended is required
+  # Extended version includes SCSS/SASS processing
+  # Set to false as the Blowfish theme handles this via dart-sass
+  extended = false
+
+# ==============================================================================
+# Module Imports (commented out example)
+# ==============================================================================
+# If using Hugo Modules instead of Git submodules, configure here:
+#
+# [[imports]]
+#   path = "github.com/nunocoracao/blowfish/v2"
+#
+# Note: Currently this site uses Git submodules for theme management
+# (see .gitmodules file). To switch to Hugo Modules:
+# 1. Remove the themes/blowfish submodule
+# 2. Uncomment the imports section above
+# 3. Run: hugo mod get -u

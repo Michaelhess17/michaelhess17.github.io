@@ -1,114 +1,238 @@
+# ==============================================================================
+# Blowfish Theme Parameters
+# ==============================================================================
+# This file contains all theme-specific configuration for the Blowfish theme.
+# For complete documentation, see: https://blowfish.page/docs/configuration/
+# ==============================================================================
+
+# ==============================================================================
+# Appearance Settings
+# ==============================================================================
+
+# Color scheme: Determines the overall color palette of the site
+# Options: blowfish (default), avocado, fire, ocean, forest, princess, 
+#          neon, bloody, terminal, marvel, noir, garden, contrast, 
+#          burgundy, slate, and more
 colorScheme = "slate"
+
+# Default appearance mode when users first visit
+# Options: light, dark, auto (follows system preference)
 defaultAppearance = "dark"
+
+# Allow automatic switching based on system preference
 autoSwitchAppearance = true
+
+# ==============================================================================
+# Feature Flags
+# ==============================================================================
+
+# Enable site-wide search functionality
 enableSearch = true
+
+# Add copy button to code blocks for easy copying
 enableCodeCopy = true
+
+# Enable "reply by email" functionality in comments
 replyByEmail = false
+
+# Disable automatic image optimization (uses Hugo's default processing)
 disableImageOptimization = false
+
+# Disable text in the header (shows only logo/image)
 disableTextInHeader = false
+
+# Highlight the current menu item based on the page being viewed
 highlightCurrentMenuArea = true
+
+# Smart Table of Contents: Auto-hides/shows based on scroll position
 smartTOC = true
+
+# Hide unfocused children in TOC (commented out - shows all levels)
 # smartTOCHideUnfocusedChildren = true
+
+# Default server for Gitea integration
 giteaDefaultServer = "https://git.fsfe.org"
+
+# Default server for Forgejo integration
 forgejoDefaultServer = "https://v8.next.forgejo.org"
+
+# Default background image for pages
+# Located in assets/ directory
 defaultBackgroundImage = "abstract-swirls.jpg"
 
+# ==============================================================================
+# Header Configuration
+# ==============================================================================
 [header]
+# Header layout style
+# Options: basic, fixed, fixed-fill, fixed-gradient, hamburger, hybrid, custom
 layout = "fixed-gradient"
 
+# ==============================================================================
+# Footer Configuration
+# ==============================================================================
 [footer]
-showMenu = true
-showCopyright = true
-showThemeAttribution = true
-showAppearanceSwitcher = true
-showScrollToTop = true
+showMenu = true                  # Display footer navigation menu
+showCopyright = true             # Display copyright notice
+showThemeAttribution = true      # Show "Built with Blowfish" attribution
+showAppearanceSwitcher = true    # Show light/dark mode toggle in footer
+showScrollToTop = true           # Show scroll-to-top button
 
+# ==============================================================================
+# Homepage Layout
+# ==============================================================================
 [homepage]
+# Homepage layout style
+# Options: page, profile, hero, card, background, custom
 layout = "background"
-showRecent = true
-showRecentItems = 5
-showMoreLink = true
-showMoreLinkDest = "/posts/"
-cardView = true
-cardViewScreenWidth = false
-layoutBackgroundBlur = false
 
+# Recent posts section
+showRecent = true                # Display recent posts on homepage
+showRecentItems = 5              # Number of recent posts to show
+showMoreLink = true              # Show "view all posts" link
+showMoreLinkDest = "/posts/"     # Destination for "view all" link
 
+# Card display settings
+cardView = true                  # Use card layout for recent items
+cardViewScreenWidth = false      # Don't constrain card width to screen width
+
+# Background blur effect
+layoutBackgroundBlur = false     # Don't blur the background image
+
+# ==============================================================================
+# Article Configuration
+# ==============================================================================
 [article]
-showDate = true
-showViews = false
-showLikes = false
-showDateOnlyInArticle = false
-showDateUpdated = false
-showAuthor = true
-showHero = true
-heroStyle = "background"
-layoutBackgroundBlur = true
-layoutBackgroundHeaderSpace = true
-showBreadcrumbs = false
-showDraftLabel = true
-showEdit = false
-editAppendPath = true
-seriesOpened = false
-showHeadingAnchors = true
-showPagination = true
-invertPagination = false
-showReadingTime = true
-showTableOfContents = true
-showTaxonomies = false
-showAuthorsBadges = false
-showWordCount = true
-showZenMode = true
+# Date and time display
+showDate = true                  # Show publication date
+showViews = false                # Hide view counter
+showLikes = false                # Hide like counter
+showDateOnlyInArticle = false    # Show date in lists and articles
+showDateUpdated = false          # Don't show last updated date
 
+# Author information
+showAuthor = true                # Display author name/info
+
+# Hero image settings
+showHero = true                  # Show hero/featured image
+heroStyle = "background"         # Hero image style: thumbnail, basic, big, background, thumbAndBackground
+
+# Layout effects
+layoutBackgroundBlur = true      # Blur background behind content
+layoutBackgroundHeaderSpace = true  # Add space above header when using background
+
+# Navigation and metadata
+showBreadcrumbs = false          # Hide breadcrumb navigation
+showDraftLabel = true            # Show "DRAFT" label on draft posts
+
+# Editing
+showEdit = false                 # Hide "edit this page" link
+editAppendPath = true            # Append page path to edit URL
+
+# Series posts
+seriesOpened = false             # Keep series TOC collapsed by default
+
+# Content features
+showHeadingAnchors = true        # Show anchor links on headings
+showPagination = true            # Show prev/next post navigation
+invertPagination = false         # Standard pagination order
+showReadingTime = true           # Display estimated reading time
+showTableOfContents = true       # Show article TOC (sidebar)
+showTaxonomies = false           # Hide tags/categories in article header
+showAuthorsBadges = false        # Hide author badges
+showWordCount = true             # Display word count
+showZenMode = true               # Enable zen/focus reading mode
+
+# ==============================================================================
+# List Page Configuration
+# ==============================================================================
+# Settings for category, tag, and post list pages
 [list]
-showHero = true
-heroStyle = "background"
-layoutBackgroundBlur = true
-layoutBackgroundHeaderSpace = true
-showBreadcrumbs = false
-showSummary = false
-showViews = false
-showLikes = false
-showTableOfContents = false
-showCards = true
-orderByWeight = false
-groupByYear = false
-cardView = true
-cardViewScreenWidth = false
-constrainItemsWidth = false
+showHero = true                  # Show hero image on list pages
+heroStyle = "background"         # Hero image display style
+layoutBackgroundBlur = true      # Blur background on list pages
+layoutBackgroundHeaderSpace = true  # Add header spacing
 
+showBreadcrumbs = false          # Hide breadcrumb navigation
+showSummary = false              # Don't show post summaries in lists
+showViews = false                # Hide view counts
+showLikes = false                # Hide like counts
+showTableOfContents = false      # Hide TOC on list pages
+showCards = true                 # Use card layout for posts
+orderByWeight = false            # Order by date, not manual weight
+groupByYear = false              # Don't group posts by year
+cardView = true                  # Enable card view
+cardViewScreenWidth = false      # Don't constrain to screen width
+constrainItemsWidth = false      # Don't constrain individual item widths
+
+# ==============================================================================
+# Sitemap Configuration
+# ==============================================================================
 [sitemap]
+# Exclude certain page types from sitemap
 excludedKinds = [ "taxonomy", "term" ]
 
+# ==============================================================================
+# Taxonomy Page Configuration
+# ==============================================================================
+# Settings for taxonomy list pages (tags, categories overview)
 [taxonomy]
-showTermCount = true
-showHero = false
-showBreadcrumbs = false
-showViews = false
-showLikes = false
-showTableOfContents = false
-cardView = false
+showTermCount = true             # Show number of posts per term
+showHero = false                 # No hero image on taxonomy pages
+showBreadcrumbs = false          # No breadcrumbs
+showViews = false                # No view counter
+showLikes = false                # No like counter
+showTableOfContents = false      # No TOC
+cardView = false                 # Use list view, not cards
 
+# ==============================================================================
+# Term Page Configuration
+# ==============================================================================
+# Settings for individual term pages (e.g., posts tagged "machine-learning")
 [term]
-showHero = false
-showBreadcrumbs = false
-showViews = false
-showLikes = false
-showTableOfContents = true
-groupByYear = false
-cardView = false
-cardViewScreenWidth = false
+showHero = false                 # No hero image
+showBreadcrumbs = false          # No breadcrumbs
+showViews = false                # No view counter
+showLikes = false                # No like counter
+showTableOfContents = true       # Show TOC if content is long
+groupByYear = false              # Don't group by year
+cardView = false                 # Use list view
+cardViewScreenWidth = false      # Don't constrain width
+
+# ==============================================================================
+# Analytics and External Services
+# ==============================================================================
+# Configuration sections for various analytics and services
+# All currently disabled/unconfigured
 
 [firebase]
+# Firebase configuration for features like view counts, likes, etc.
+# Not currently configured
 
 [fathomAnalytics]
+# Fathom Analytics configuration
+# Privacy-focused analytics alternative
+# Not currently configured
 
 [umamiAnalytics]
+# Umami Analytics configuration
+# Self-hosted analytics alternative
+# Not currently configured
 
 [selineAnalytics]
+# Seline Analytics configuration
+# Not currently configured
 
 [buymeacoffee]
+# "Buy Me a Coffee" widget configuration
+# For accepting donations/tips
+# Not currently configured
 
 [verification]
+# Site verification tokens for search engines and services
+# (Google, Bing, Pinterest, etc.)
+# Not currently configured
 
 [rssnext]
+# RSS aggregator/reader integration
+# Not currently configured

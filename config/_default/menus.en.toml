@@ -1,29 +1,80 @@
+# ==============================================================================
+# Navigation Menus Configuration
+# ==============================================================================
+# Defines the navigation menu structure for the site.
+# Menus appear in the header and footer of the site.
+# 
+# Menu items can link to:
+# - Internal pages using pageRef (e.g., "posts", "about")
+# - External URLs using url (e.g., "https://example.com")
+# - Custom identifiers that map to content
+#
+# Weight determines display order (lower numbers appear first)
+# ==============================================================================
+
+# ==============================================================================
+# Main Navigation Menu (Header)
+# ==============================================================================
+# This menu appears in the site header/navigation bar
+
+# Posts link - Shows all blog posts
 [[main]]
-name = "Posts"
-pageRef = "posts"
-weight = 1
+  name = "Posts"              # Display text
+  pageRef = "posts"           # Reference to /content/posts/
+  weight = 1                  # First item in menu
 
+# Categories link - Shows all post categories
 [[main]]
-name = "Categories"
-pageRef = "categories"
-weight = 2
+  name = "Categories"
+  pageRef = "categories"      # Hugo automatically creates this taxonomy page
+  weight = 2                  # Second item in menu
 
+# CV/Resume link - External PDF hosted on the site
 [[main]]
-name = "CV"
-url = "https://michaelhess17.github.io/cv/Michael_Hess_CV.pdf"
-weight = 3
+  name = "CV"
+  url = "https://michaelhess17.github.io/cv/Michael_Hess_CV.pdf"
+  weight = 3                  # Third item in menu
 
-[[footer]]
-name = "Posts"
-pageRef = "posts"
-weight = 9
+# ==============================================================================
+# Footer Navigation Menu
+# ==============================================================================
+# This menu appears in the site footer
+# Can duplicate main menu items or provide different links
 
+# Posts link in footer
 [[footer]]
-name = "Tags"
-pageRef = "tags"
-weight = 10
+  name = "Posts"
+  pageRef = "posts"
+  weight = 9
 
+# Tags link - Shows all post tags
 [[footer]]
-name = "Categories"
-pageRef = "categories"
-weight = 20
+  name = "Tags"
+  pageRef = "tags"            # Hugo automatically creates this taxonomy page
+  weight = 10
+
+# Categories link in footer
+[[footer]]
+  name = "Categories"
+  pageRef = "categories"
+  weight = 20
+
+# ==============================================================================
+# Additional Menu Examples (commented out)
+# ==============================================================================
+# Uncomment and modify to add more menu items:
+#
+# [[main]]
+#   name = "About"
+#   pageRef = "about"
+#   weight = 4
+#
+# [[main]]
+#   name = "Research"
+#   pageRef = "research"
+#   weight = 5
+#
+# [[footer]]
+#   name = "Privacy"
+#   pageRef = "privacy"
+#   weight = 30
