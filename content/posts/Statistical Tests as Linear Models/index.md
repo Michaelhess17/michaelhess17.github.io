@@ -2,6 +2,8 @@
 title: "Common Statistical Tests Are Just Linear Models"
 date: 2026-03-25
 draft: false
+tags: ["math", "research", "tools", "tutorials"]
+categories: ["math", "research", "tools", "tutorials"]
 ---
 
 {{< katex >}}
