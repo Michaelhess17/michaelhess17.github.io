@@ -1,2 +1,9 @@
 public/
 .hugo_build.lock
+
+.pixi/
+.vscode/
+index_nbconvert_files/
+pixi.toml
+pixi.lock
+*.ipynb

@@ -48,6 +48,13 @@ This project was continued, and some of the results are published here: Jui-Yen 
 ## Undergraduate
 
 ### Fetz Laboratory
+I had the privilege of briefly working with the renowned Dr. Eberhard Fetz at the University of Washington's National Primate Research Center during the first summer of my undergraduate work, one of the first serious investigators researching brain computer interfaces (BCIs) in non-human primates. His seminal work (even more impressive than the same ["new" work demonstrated at a press conference recently by Neuralink](https://www.sciencemediacentre.org/expert-reaction-to-elon-musks-neuralink-demonstration-involving-pigs/)) used _in vivo_ neural recordings to control a dial accurately.
+
+In my project, I worked with data collected by the NeuroChip3, an advanced BCI platform that has 32 recording sites, stimulators, and hardware support for closed-loop stimulation protocols. When joining the lab, I had little experience with their programming language of choice (MATLAB), and I definitely needed linear algebra tutoring, so most of my time was spent just debugging analysis methodologies. For the final output of the project, I analyzed the effect of Vagus Nerve stimulation on phase-locking in motor regions of the brain. We found that the phase-locking of various neurons increased with the stimulation protocol, and I provided scripts that would pre-process the data, conduct the analysis, produce a deluge of figures relevant to the analysis (primarily comparing the effect of covariates on the analysis).  
+
+{{< alert icon="researchgate" >}}
+This project was not continued directly, but more results on the effects of the stimulation during various behavioral and brain states can be found [here](https://pubmed.ncbi.nlm.nih.gov/38075283/) and more results [here](https://pubmed.ncbi.nlm.nih.gov/30100342/) show that stimulations that promote phase-locking across neurons during beta oscillations increases the bidirectional synaptic plasticity of the neurons involved.
+{{< /alert >}}
 
 ### Brain Networks & Behavior Laboratory
 
